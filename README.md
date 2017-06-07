@@ -1,4 +1,21 @@
 
+LINK:   http://www.androidhive.info/2014/07/android-speech-to-text-tutorial/
+        http://blog.csdn.net/wangkuifeng0118/article/details/7251813    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Android Camera2Video Sample
 ===================================
 
