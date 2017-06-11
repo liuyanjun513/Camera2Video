@@ -37,13 +37,18 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.location.Location;
+import android.location.LocationManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
+
 import android.support.v13.app.FragmentCompat;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.PermissionChecker;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -79,6 +84,7 @@ public class Camera2VideoFragment extends Fragment
     private static final String[] VIDEO_PERMISSIONS = {
             Manifest.permission.CAMERA,
             Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.ACCESS_FINE_LOCATION
     };
 
     static {
@@ -218,6 +224,9 @@ public class Camera2VideoFragment extends Fragment
     private Integer mSensorOrientation;
     private String mNextVideoAbsolutePath;
     private CaptureRequest.Builder mPreviewBuilder;
+
+    public static double longitude;
+    public static double latitude;
 
     public static Camera2VideoFragment newInstance() {
         return new Camera2VideoFragment();
@@ -591,6 +600,10 @@ public class Camera2VideoFragment extends Fragment
         mMediaRecorder.setVideoSize(mVideoSize.getWidth(), mVideoSize.getHeight());
         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        getGPSLocation(getActivity());
+        if (latitude != 0 && longitude != 0){
+            mMediaRecorder.setLocation((float)latitude, (float)longitude);
+        }
         int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
         switch (mSensorOrientation) {
             case SENSOR_ORIENTATION_DEFAULT_DEGREES:
@@ -760,4 +773,16 @@ public class Camera2VideoFragment extends Fragment
 
     }
 
+    public void getGPSLocation(Context c) {
+
+        LocationManager locMgr = (LocationManager) c.getSystemService(Context.LOCATION_SERVICE);
+        //Check for permissions before setting locations
+        if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        Location location = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
+    }
 }
