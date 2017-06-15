@@ -12,10 +12,14 @@ This source code is a modification of Google's [Camera2Video][1] sample applicat
 with speech recognition and GPS location tracking.
 
 Additional code for the voice detection in RecognizerIntentActivity.java is based on tutorials by 
-[wangkuifeng0118][http://blog.csdn.net/wangkuifeng0118/article/details/7251813] and [AndroidHive][http://www.androidhive.info/2014/07/android-speech-to-text-tutorial/].
+[wangkuifeng0118][2] and [AndroidHive][3].
 
-GPS Location code was created using the [android.location API framework][https://developer.android.com/reference/android/location/package-summary.html]. 
+GPS Location code was created using the [android.location API framework][4]. 
 
+[1]: https://github.com/googlesamples/android-Camera2Video
+[2]: http://blog.csdn.net/wangkuifeng0118/article/details/7251813
+[3]: http://www.androidhive.info/2014/07/android-speech-to-text-tutorial/
+[4]: https://developer.android.com/reference/android/location/package-summary.html
 
 Gradle
 ---------------
