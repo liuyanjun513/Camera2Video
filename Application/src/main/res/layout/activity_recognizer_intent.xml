@@ -57,7 +57,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(Default:hello world)"
+        android:text="(Default:hello bear)"
         android:layout_marginLeft="6dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="9dp"

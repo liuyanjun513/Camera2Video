@@ -1,3 +1,15 @@
+/**
+ * This code makes extensive use of Speech to Text tutorials from the following links:
+ *  http://blog.csdn.net/wangkuifeng0118/article/details/7251813 by wangkuifeng0118
+ *  http://www.androidhive.info/2014/07/android-speech-to-text-tutorial/
+ *
+ *  The latter tutorial is provided in English, while the first is written in Chinese,
+ *  which was used and modified for English comprehension below.
+ *
+ */
+
+
+
 package com.example.android.camera2video;
 
 import android.app.Activity;
@@ -59,7 +71,7 @@ public class RecognizerIntentActivity extends Activity {
         sentence.setText("");
         String sInstruction=instruction.getText().toString();
         if(sInstruction.equals("")){
-            sInstruction="hello world";
+            sInstruction="hello bear";
         }
         boolean flag=false;
         //get data from google voice

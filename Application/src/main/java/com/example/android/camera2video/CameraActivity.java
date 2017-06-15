@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+/**
+ * The following code is sourced from Google's Camera2Video template found at:
+ * https://github.com/googlesamples/android-Camera2Video
+ */
+
 package com.example.android.camera2video;
 
 import android.app.Activity;

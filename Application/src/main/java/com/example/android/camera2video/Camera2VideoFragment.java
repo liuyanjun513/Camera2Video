@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * The following code is sourced from Google's Camera2Video template found at:
+ * https://github.com/googlesamples/android-Camera2Video
+ *
+ * Sections were modified for use with Audio/Speech recognition and location tracking
+ * Location tracking method and capturing was created using the Location API.
+ */
+
 package com.example.android.camera2video;
 
 import android.Manifest;
